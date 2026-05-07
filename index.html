@@ -6,406 +6,7 @@
   <title>Kristine Tøgard – UX/UI & Illustrasjon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #F5F2EC;
-      --surface: #EDEAE2;
-      --ink: #1A1814;
-      --ink-muted: #6B6760;
-      --accent: #C4440A;
-      --accent-light: #F2E8E2;
-      --border: #D8D4CC;
-      --white: #FDFCFA;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.25rem 3rem;
-      background: rgba(245, 242, 236, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--ink-muted);
-      font-size: 0.875rem;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 80px;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 4rem 6rem 3rem;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(3rem, 5vw, 5rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--ink-muted);
-      max-width: 38ch;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-
-    .hero-actions { display: flex; gap: 1rem; align-items: center; }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.8rem 1.75rem;
-      background: var(--ink);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-
-    .btn-ghost {
-      display: inline-block;
-      padding: 0.8rem 1.75rem;
-      border: 1px solid var(--border);
-      color: var(--ink-muted);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
-
-    .hero-right {
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--ink-muted);
-      font-size: 0.875rem;
-    }
-
-    .hero-img-placeholder svg {
-      width: 80px; height: 80px;
-      opacity: 0.25;
-    }
-
-    /* SECTIONS */
-    section { padding: 6rem 3rem; }
-
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 3.5rem;
-      max-width: 20ch;
-    }
-
-    /* UX PROJECTS */
-    #prosjekter { background: var(--white); }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2px;
-    }
-
-    .project-card {
-      background: var(--surface);
-      aspect-ratio: 4/3;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(26,24,20,0.8) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover { transform: scale(1.01); }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-card:hover .project-info { opacity: 1; transform: translateY(0); }
-
-    .project-info {
-      position: relative; z-index: 1;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.3s ease;
-      color: var(--white);
-    }
-
-    .project-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-    }
-
-    .project-placeholder {
-      position: absolute; inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 5rem;
-      opacity: 0.08;
-      color: var(--ink);
-      user-select: none;
-    }
-
-    /* ABOUT */
-    #om-meg {
-      background: var(--bg);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .about-img {
-      aspect-ratio: 3/4;
-      background: var(--surface);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      color: var(--ink-muted);
-      font-size: 0.875rem;
-    }
-
-    .about-text { padding: 2rem 0; }
-
-    .about-text p {
-      color: var(--ink-muted);
-      margin-bottom: 1.25rem;
-      font-weight: 300;
-    }
-
-    .skills-list {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-      margin-top: 2rem;
-    }
-
-    .skill-pill {
-      padding: 0.35rem 0.9rem;
-      border: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      letter-spacing: 0.02em;
-    }
-
-    /* ILLUSTRASJON */
-    #illustrasjon { background: var(--ink); }
-
-    #illustrasjon .section-label { color: var(--accent); }
-    #illustrasjon .section-title { color: var(--white); }
-
-    .illo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 2px;
-    }
-
-    .illo-card {
-      background: #2A2720;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .illo-card:first-child {
-      grid-column: span 2;
-      aspect-ratio: 2/1;
-    }
-
-    .illo-card:hover { background: #312E28; }
-
-    .illo-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 5rem;
-      color: rgba(255,255,255,0.05);
-      user-select: none;
-      position: absolute;
-    }
-
-    .illo-label {
-      position: absolute;
-      bottom: 1rem; left: 1rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-    }
-
-    /* KONTAKT */
-    #kontakt {
-      background: var(--accent);
-      text-align: center;
-      padding: 8rem 3rem;
-    }
-
-    #kontakt .section-label { color: rgba(255,255,255,0.6); }
-    #kontakt .section-title {
-      color: var(--white);
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 2rem;
-    }
-
-    #kontakt p {
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-
-    #kontakt .btn-primary {
-      background: var(--white);
-      color: var(--accent);
-    }
-
-    #kontakt .btn-primary:hover {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--ink);
-      color: var(--ink-muted);
-      padding: 2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-    }
-
-    footer a { color: var(--ink-muted); text-decoration: none; }
-    footer a:hover { color: var(--white); }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
-
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-left { padding: 6rem 1.5rem 4rem; }
-
-      section { padding: 4rem 1.5rem; }
-
-      #om-meg { grid-template-columns: 1fr; }
-      .about-img { aspect-ratio: 4/3; }
-
-      .illo-grid { grid-template-columns: repeat(2, 1fr); }
-      .illo-card:first-child { grid-column: span 2; aspect-ratio: 2/1; }
-
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -413,29 +14,29 @@
   <nav>
     <a class="nav-logo" href="#">Kristine Tøgard</a>
     <ul class="nav-links">
-      <li><a href="#prosjekter">Prosjekter</a></li>
-      <li><a href="#illustrasjon">Illustrasjon</a></li>
-      <li><a href="#om-meg">Om meg</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#prosjekter" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+      <li><a href="#illustrasjon" data-no="Illustrasjon" data-en="Illustration">Illustrasjon</a></li>
+      <li><a href="#om-meg" data-no="Om meg" data-en="About">Om meg</a></li>
+      <li><a href="#kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
     </ul>
+    <button id="lang-btn" onclick="toggleLang()">EN</button>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <span class="hero-tag">UX/UI Designer & Illustratør</span>
+      <span class="hero-tag" data-no="UX/UI Designer & Illustratør" data-en="UX/UI Designer & Illustrator">UX/UI Designer & Illustratør</span>
       <h1 class="hero-title">
-        Design som<br/>
-        <em>tenker</em> og<br/>
-        føles riktig.
+        <span data-no="Design som" data-en="Design that">Design som</span><br/>
+        <em data-no="tenker" data-en="thinks">tenker</em><br/>
+        <span data-no="og føles riktig." data-en="and feels right.">og føles riktig.</span>
       </h1>
-      <p class="hero-desc">
-        Jeg lager digitale opplevelser som er intuitive, vakre og meningsfulle –
-        med et kreativt blikk hentet fra illustrasjonsverdenen.
+      <p class="hero-desc" data-no="Jeg lager digitale opplevelser som er intuitive, vakre og meningsfulle – med et kreativt blikk hentet fra illustrasjonsverdenen." data-en="I create digital experiences that are intuitive, beautiful and meaningful – with a creative eye rooted in the world of illustration.">
+        Jeg lager digitale opplevelser som er intuitive, vakre og meningsfulle – med et kreativt blikk hentet fra illustrasjonsverdenen.
       </p>
       <div class="hero-actions">
-        <a href="#prosjekter" class="btn-primary">Se prosjekter</a>
-        <a href="#kontakt" class="btn-ghost">Ta kontakt</a>
+        <a href="#prosjekter" class="btn-primary" data-no="Se prosjekter" data-en="View projects">Se prosjekter</a>
+        <a href="#kontakt" class="btn-ghost" data-no="Ta kontakt" data-en="Get in touch">Ta kontakt</a>
       </div>
     </div>
     <div class="hero-right">
@@ -445,35 +46,35 @@
           <circle cx="30" cy="30" r="8" stroke="currentColor" stroke-width="1.5"/>
           <path d="M10 55L28 38L38 48L52 32L70 55" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         </svg>
-        <span>Legg til profilbilde eller heroillustrasjon</span>
+        <span data-no="Legg til profilbilde eller heroillustrasjon" data-en="Add profile photo or hero illustration">Legg til profilbilde eller heroillustrasjon</span>
       </div>
     </div>
   </section>
 
   <!-- UX/UI PROSJEKTER -->
   <section id="prosjekter">
-    <div class="section-label">Utvalgte prosjekter</div>
-    <h2 class="section-title">UX/UI-arbeid</h2>
+    <div class="section-label" data-no="Utvalgte prosjekter" data-en="Selected work">Utvalgte prosjekter</div>
+    <h2 class="section-title" data-no="UX/UI-arbeid" data-en="UX/UI work">UX/UI-arbeid</h2>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-placeholder">01</div>
         <div class="project-info">
-          <div class="project-tag">Mobilapp · UX Research</div>
-          <div class="project-name">Prosjektnavn</div>
+          <div class="project-tag" data-no="Mobilapp · UX Research" data-en="Mobile app · UX Research">Mobilapp · UX Research</div>
+          <div class="project-name" data-no="Prosjektnavn" data-en="Project name">Prosjektnavn</div>
         </div>
       </div>
       <div class="project-card">
         <div class="project-placeholder">02</div>
         <div class="project-info">
-          <div class="project-tag">Webdesign · Design System</div>
-          <div class="project-name">Prosjektnavn</div>
+          <div class="project-tag" data-no="Webdesign · Design System" data-en="Web design · Design System">Webdesign · Design System</div>
+          <div class="project-name" data-no="Prosjektnavn" data-en="Project name">Prosjektnavn</div>
         </div>
       </div>
       <div class="project-card">
         <div class="project-placeholder">03</div>
         <div class="project-info">
-          <div class="project-tag">Prototype · Brukertesting</div>
-          <div class="project-name">Prosjektnavn</div>
+          <div class="project-tag" data-no="Prototype · Brukertesting" data-en="Prototype · User testing">Prototype · Brukertesting</div>
+          <div class="project-name" data-no="Prosjektnavn" data-en="Project name">Prosjektnavn</div>
         </div>
       </div>
     </div>
@@ -486,70 +87,68 @@
         <circle cx="24" cy="18" r="9" stroke="currentColor" stroke-width="1.5"/>
         <path d="M6 42c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <span style="font-size:.875rem; color: var(--ink-muted);">Legg til bilde av deg selv</span>
+      <span data-no="Legg til bilde av deg selv" data-en="Add a photo of yourself">Legg til bilde av deg selv</span>
     </div>
     <div class="about-text">
-      <div class="section-label">Om meg</div>
-      <h2 class="section-title">Hei, jeg er [Navn].</h2>
-      <p>
-        Skriv litt om deg selv her. Hvor jobber du, hva driver deg, og hva er bakgrunnen din?
-        Hold det personlig og ekte – rekrutterere leser dette for å forstå hvem du er.
+      <div class="section-label" data-no="Om meg" data-en="About me">Om meg</div>
+      <h2 class="section-title" data-no="Hei, jeg er Kristine." data-en="Hi, I'm Kristine.">Hei, jeg er Kristine.</h2>
+      <p data-no="Skriv litt om deg selv her. Hvor jobber du, hva driver deg, og hva er bakgrunnen din? Hold det personlig og ekte." data-en="Write a bit about yourself here. Where do you work, what drives you, and what's your background? Keep it personal and genuine.">
+        Skriv litt om deg selv her. Hvor jobber du, hva driver deg, og hva er bakgrunnen din? Hold det personlig og ekte.
       </p>
-      <p>
-        Legg gjerne til hva som skiller deg: kombinasjonen av UX-tenkning og illustrasjonsbakgrunn
-        er et virkelig konkurransefortrinn.
+      <p data-no="Kombinasjonen av UX-tenkning og illustrasjonsbakgrunn er et virkelig konkurransefortrinn." data-en="The combination of UX thinking and an illustration background is a real competitive advantage.">
+        Kombinasjonen av UX-tenkning og illustrasjonsbakgrunn er et virkelig konkurransefortrinn.
       </p>
       <div class="skills-list">
         <span class="skill-pill">Figma</span>
         <span class="skill-pill">UX Research</span>
         <span class="skill-pill">Prototyping</span>
         <span class="skill-pill">Design Systems</span>
-        <span class="skill-pill">Illustrasjon</span>
+        <span class="skill-pill" data-no="Illustrasjon" data-en="Illustration">Illustrasjon</span>
         <span class="skill-pill">HTML/CSS</span>
-        <span class="skill-pill">Usability Testing</span>
+        <span class="skill-pill" data-no="Brukertesting" data-en="Usability Testing">Brukertesting</span>
       </div>
     </div>
   </section>
 
   <!-- ILLUSTRASJON -->
   <section id="illustrasjon">
-    <div class="section-label">Kreativt arbeid</div>
-    <h2 class="section-title">Illustrasjon</h2>
+    <div class="section-label" data-no="Kreativt arbeid" data-en="Creative work">Kreativt arbeid</div>
+    <h2 class="section-title" data-no="Illustrasjon" data-en="Illustration">Illustrasjon</h2>
     <div class="illo-grid">
       <div class="illo-card">
         <div class="illo-num">I</div>
-        <div class="illo-label">Fremhevet verk</div>
+        <div class="illo-label" data-no="Fremhevet verk" data-en="Featured work">Fremhevet verk</div>
       </div>
       <div class="illo-card">
         <div class="illo-num">II</div>
-        <div class="illo-label">Verk</div>
+        <div class="illo-label" data-no="Verk" data-en="Work">Verk</div>
       </div>
       <div class="illo-card">
         <div class="illo-num">III</div>
-        <div class="illo-label">Verk</div>
+        <div class="illo-label" data-no="Verk" data-en="Work">Verk</div>
       </div>
       <div class="illo-card">
         <div class="illo-num">IV</div>
-        <div class="illo-label">Verk</div>
+        <div class="illo-label" data-no="Verk" data-en="Work">Verk</div>
       </div>
       <div class="illo-card">
         <div class="illo-num">V</div>
-        <div class="illo-label">Verk</div>
+        <div class="illo-label" data-no="Verk" data-en="Work">Verk</div>
       </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
   <section id="kontakt">
-    <div class="section-label">La oss snakke</div>
-    <h2 class="section-title">Har du et prosjekt i tankene?</h2>
-    <p>Jeg er tilgjengelig for frilansoppdrag og nye stillinger.</p>
-    <a href="mailto:din@epost.no" class="btn-primary">Send meg en e-post</a>
+    <div class="section-label" data-no="La oss snakke" data-en="Let's talk">La oss snakke</div>
+    <h2 class="section-title" data-no="Har du et prosjekt i tankene?" data-en="Got a project in mind?">Har du et prosjekt i tankene?</h2>
+    <p data-no="Jeg er tilgjengelig for frilansoppdrag og nye stillinger." data-en="I'm available for freelance projects and new positions.">Jeg er tilgjengelig for frilansoppdrag og nye stillinger.</p>
+    <a href="mailto:din@epost.no" class="btn-primary" data-no="Send meg en e-post" data-en="Send me an email">Send meg en e-post</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2026 Kristine Tøgard</span>
+    <span>© 2026 Kristine</span>
     <div style="display:flex;gap:1.5rem;">
       <a href="#">LinkedIn</a>
       <a href="#">Behance</a>
@@ -557,24 +156,6 @@
     </div>
   </footer>
 
-  <script>
-    // Smooth reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.project-card, .illo-card, .about-text, .about-img').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-  </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
