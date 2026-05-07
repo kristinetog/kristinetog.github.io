@@ -83,11 +83,7 @@
   <!-- OM MEG -->
   <section id="om-meg">
     <div class="about-img">
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="opacity:.3">
-        <circle cx="24" cy="18" r="9" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M6 42c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span data-no="Legg til bilde av deg selv" data-en="Add a photo of yourself">Legg til bilde av deg selv</span>
+    <img src="images/meg.jpg" alt="Kristine Tøgard" />
     </div>
     <div class="about-text">
       <div class="section-label" data-no="Om meg" data-en="About me">Om meg</div>
@@ -117,16 +113,16 @@
     <h2 class="section-title" data-no="Illustrasjon" data-en="Illustration">Illustrasjon</h2>
     <div class="illo-grid">
       <div class="illo-card">
-        <div class="illo-num">I</div>
-        <div class="illo-label" data-no="Fremhevet verk" data-en="Featured work">Fremhevet verk</div>
+        <div class="illo-label-dark" data-no="Illustrasjon for Trustpulse" data-en="Illustration for Trustpulse">Illustrasjon for Trustpulse</div>
+        <img src="images/illustrations/Trustpulse.png" alt="Vektorillustrasjon som viser teamarbeid, fire personer i et møte som diskuterer" />
       </div>
       <div class="illo-card">
-        <div class="illo-num">II</div>
-        <div class="illo-label" data-no="Verk" data-en="Work">Verk</div>
+        <div class="illo-label" data-no="Plakat for spillet Rat with a Postman Hat" data-en="Poster for the game Rat with a Postman Hat">Plakat for spillet Rat with a Postman Hat</div>
+        <img src="images/illustrations/rat-poster.png" alt="Illustrasjon av en postmann-rotte" />
       </div>
       <div class="illo-card">
-        <div class="illo-num">III</div>
-        <div class="illo-label" data-no="Verk" data-en="Work">Verk</div>
+        <div class="illo-label-dark" data-no="Diskusjonskort til prosjekt om unnskyldninger" data-en="Discussion cards for project about excuses">Diskusjonskort til prosjekt om unnskyldninger</div>
+        <img src="images/illustrations/excuse-cards.png" alt="Fire illustrerte kort som viser en dame i bil, en dame på fly, en mann som kaster en flaske i søpla og en mann som bærer på en handlepose." />
       </div>
       <div class="illo-card">
         <div class="illo-num">IV</div>
@@ -156,6 +152,18 @@
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="Illustrasjon" />
+  </div>
+  <div class="lightbox-nav">
+    <button class="lightbox-btn" onclick="prevImage()">← Forrige</button>
+    <button class="lightbox-btn" onclick="nextImage()">Neste →</button>
+  </div>
+  <div id="lightbox-counter" class="lightbox-counter"></div>
+</div>
   <script src="js/main.js"></script>
 </body>
 </html>
